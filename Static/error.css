@@ -1,0 +1,56 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light gray background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the error message */
+.error-container {
+    background-color: #fff; /* White background for the container */
+    border: 2px solid #004B87; /* Real Madrid blue border */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Title styling */
+.error-title {
+    font-size: 24px;
+    color: #004B87; /* Real Madrid blue */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Message styling */
+.error-message {
+    font-size: 18px;
+    color: #333; /* Dark gray for readability */
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+.error-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff; /* White text */
+    background-color: #F7E300; /* Real Madrid gold */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.error-button:hover {
+    background-color: #e1c700; /* Slightly darker gold on hover */
+}

@@ -1,0 +1,180 @@
+/* Style de base pour le corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2; /* Couleur de fond très claire */
+    margin: 0;
+    padding: 0;
+    background-image: url('images/real-madrid-background.jpg'); /* Image de fond */
+    background-size: cover; /* Couvre tout l'écran */
+    background-position: center; /* Centre l'image */
+    background-attachment: fixed; /* Fixe l'image lors du défilement */
+}
+
+/* Style pour l'en-tête */
+.header {
+    background-color: rgba(255, 255, 255, 0.8); /* Fond blanc semi-transparent */
+    color: #002A5B; /* Bleu foncé du Real Madrid */
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 5px solid #FFC720; /* Jaune doré pour la bordure */
+    border-radius: 10px; /* Coins arrondis pour l'en-tête */
+}
+
+/* Style pour le conteneur du formulaire */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Fond blanc pour le formulaire */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    border: 2px solid #002A5B; /* Bordure bleue du Real Madrid */
+}
+
+/* Style pour les étiquettes et les éléments de formulaire */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #002A5B; /* Bleu foncé pour les étiquettes */
+}
+
+form select,
+form textarea,
+form input[type="reset"],
+form input[type="submit"],
+form button[type="submit"] { /* Ajout du style pour le bouton de téléchargement */
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form input[type="submit"],
+form button[type="submit"].download-button { /* Style commun pour les boutons de soumission et de téléchargement */
+    background-color: #002A5B; /* Bleu foncé pour le bouton */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* Ajout d'une transition fluide */
+}
+
+form input[type="reset"] {
+    background-color: #FFC720; /* Jaune doré pour le bouton de réinitialisation */
+    color: #002A5B; /* Texte bleu foncé */
+    border: none;
+    cursor: pointer;
+}
+
+form input[type="reset"]:hover,
+form input[type="submit"]:hover,
+form button[type="submit"].download-button:hover { /* Effet au survol pour les boutons */
+    opacity: 0.9;
+}
+
+form input[type="submit"]:active,
+form button[type="submit"].download-button:active { /* Effet lors du clic sur le bouton */
+    background-color: #001c43; /* Bleu encore plus foncé pour l'effet de clic */
+}
+
+/* Style pour le conteneur des résultats */
+.result-container {
+    max-width: 600px;
+    max-height: 150px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Fond blanc pour le conteneur des résultats */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    border: 2px solid #002A5B; /* Bordure bleue du Real Madrid */
+    overflow-y: auto; /* Permet le défilement vertical */
+    overflow-x: auto; /* Permet le défilement horizontal */
+}
+
+/* Style pour les messages d'erreur */
+.error {
+    color: #FFC720; /* Jaune doré pour les messages d'erreur */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Style pour le bouton de téléchargement */
+.result-container form button{
+    width: auto; /* Ajuste la largeur du bouton selon le texte */
+    padding: 10px 20px; /* Padding plus large pour le bouton de téléchargement */
+    background-color: #002A5B; /* Bleu foncé pour le bouton */
+    color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px; /* Espacement au-dessus du bouton */
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* Transition fluide */
+}
+
+.result-container form button {
+    opacity: 0.9; /* Légère transparence au survol */
+}
+
+
+/* Style pour le textarea */
+textarea {
+    resize: none; /* Désactive le redimensionnement */
+    overflow: auto; /* Permet le défilement si le contenu dépasse la taille définie */
+}
+
+/* Responsiveness */
+@media (min-width: 401px) and (max-width: 1300px) {
+    .form-container, .result-container {
+        text-align: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 90vh;
+        font-size: x-large;
+    }
+
+    .Banner {
+        font-size: smaller;
+    }
+
+    #result {
+        height: 500px;
+    }
+
+    .result-container {
+        height: 70vh;
+        font-size: 1em;
+        flex-direction: column;
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 400px) {
+    .form-container, .result-container {
+        text-align: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 90vh;
+        font-size: x-large;
+    }
+
+    .Banner {
+        font-size: smaller;
+    }
+
+    #result {
+        height: 300px;
+    }
+
+    .result-container {
+        height: 70vh;
+        font-size: 1em;
+        flex-direction: column;
+        margin-top: 50px;
+    }
+}
