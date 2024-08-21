@@ -24,7 +24,6 @@
                         <br>
                         <label for="text">Write your text:</label><br><br>
                         <textarea name="text" id="text" rows="4" ></textarea><br><br>
-
                         <input type="reset" value="Reset">
                         <input type="submit" value="Generate">
                     </form>
@@ -35,6 +34,14 @@
                     <form class="download-button" action="/download" method="POST">
                         <input type="hidden" name="text" value="{{.Message}}">
                         <input type="hidden" name="Banner" value="{{.Banner}}">
+                    
+                        <label>
+                            <input type="radio" name="fileType" value="html" checked> HTML
+                        </label>
+                        <label>
+                            <input type="radio" name="fileType" value="txt"> TXT
+                        </label>
+                    
                         <button type="submit">Download ASCII Art</button>
                     </form>
                     {{else if .Err}}

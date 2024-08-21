@@ -1,6 +1,7 @@
 package Handler
 
 import (
+	"html/template"
 	"net/http"
 	"strconv"
 
@@ -21,6 +22,7 @@ func DownHandler(w http.ResponseWriter, r *http.Request) {
 
 	str := r.FormValue("text")
 	banner := r.FormValue("Banner")
+	fileType := r.FormValue("fileType")
 
 	asciiArt, err := utils.GenerateBannerText(str, banner)
 	if err != nil {
@@ -32,9 +34,29 @@ func DownHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Header().Set("Content-Disposition", "attachment; filename=ascii_art.txt")
-	w.Header().Set("Content-Type", "text/plain")
-	w.Header().Set("Content-Length", strconv.Itoa(len(asciiArt)))
+	if fileType == "html" {
+		// Serve as HTML using a template
+		w.Header().Set("Content-Disposition", "attachment; filename=ascii_art.html")
+		w.Header().Set("Content-Type", "text/html")
 
-	w.Write([]byte(asciiArt))
+		// Load the template
+		tmpl := template.Must(template.ParseFiles("Templates/ascii_art.html"))
+
+		// Pass the ASCII Art to the template
+		data := struct {
+			AsciiArt string
+		}{
+			AsciiArt: asciiArt,
+		}
+
+		if err := tmpl.Execute(w, data); err != nil {
+			utils.ShowErrorPage(w, "Error rendering template", http.StatusInternalServerError)
+		}
+	} else {
+		// Serve as TXT (default)
+		w.Header().Set("Content-Disposition", "attachment; filename=ascii_art.txt")
+		w.Header().Set("Content-Type", "text/plain")
+		w.Header().Set("Content-Length", strconv.Itoa(len(asciiArt)))
+		w.Write([]byte(asciiArt))
+	}
 }
